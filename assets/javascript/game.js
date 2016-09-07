@@ -1,4 +1,4 @@
-var animals = ['Giraffe', 'Turtle', 'Panda', 'Whale', 'Polar Bear', 'Sheep'];
+var animals = ['Mouse', 'Turtle', 'Panda', 'Gorilla', 'Polar Bear', 'Sheep','Bat','Cheetah','Snow Monkey'];
 var hideAnimals=$('.hiddeAnimal');
 
 	function displayAnimalInfo(){
@@ -15,15 +15,17 @@ var hideAnimals=$('.hiddeAnimal');
 	    console.log(response);
 	    for (var i = 0; i < results.length; i++) {
 
-			var animalDiv = $('<div>');
+			var animalDiv = $('<div class="imageMove stopImage">');
 	          var p = $('<p>').text("Rating: " + results[i].rating);
 	          var animalImage = $('<img>');
 	          animalImage.attr('src', results[i].images.fixed_height.url);
+	          // animalImage.attr('src', results[i].images.fixed_height_still.url);
 	          animalDiv.append(p);
 	          animalDiv.append(animalImage);
 	          $('#AnimalsView').append(animalDiv);
 
 	        }
+
 
 		});
 
@@ -40,7 +42,7 @@ var hideAnimals=$('.hiddeAnimal');
 			// Then dynamicaly generates buttons for each animal in the array
 
 			// Note the jQUery syntax here... 
-			 var a = $('<button class="test">') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+			 var a = $('<button class="test testStyle">') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
 			 a.addClass('animal'); // Added a class 
 			 a.attr('data-name', animals[i]); // Added a data-attribute
 			 a.text(animals[i]); // Provided the initial button text
@@ -82,7 +84,18 @@ var hideAnimals=$('.hiddeAnimal');
 
 
 	function stopGif () {
-	 $('#AnimalView').click(function() {
-	 	$('#AnimalsView').stop();
+	 $('.stopImage').click(function() {
+
+	 	var animalDiv = $('<div class="imageMove stopImage">');
+	          var p = $('<p>').text("Rating: " + results[i].rating);
+	          var animalImage = $('<img>');
+	          animalImage.attr('src', results[i].images.fixed_height.url);
+	          animalDiv.append(p);
+	          animalDiv.append(animalImage);
+	          $('#AnimalsView').append(animalDiv);
+	 	
 	 	console.log("worked");
+
 	})};
+
+

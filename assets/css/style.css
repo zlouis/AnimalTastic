@@ -73,5 +73,15 @@ button {
 }
 
 h1 {
+   text-align: center;
+ font-size: 50px;
+
 	color: black;
 }
+
+
+.testStyle{
+  float:left;
+  font-size: 19px;
+}
+
