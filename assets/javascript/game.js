@@ -7,7 +7,7 @@ var hideAnimals=$('.hiddeAnimal');
 		var animal = $(this).attr('data-name');
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 			
-		// Creates AJAX call for the specific movie being 
+	
 		$.ajax({url: queryURL, method: 'GET'}).done(function(response) {
 		var results = response.data;
 
@@ -36,17 +36,16 @@ var hideAnimals=$('.hiddeAnimal');
 
 		$('#buttonsView').empty();
 
-		// Loops through the array of animal
+
 		for (var i = 0; i < animals.length; i++){
 
-			// Then dynamicaly generates buttons for each animal in the array
+		
 
-			// Note the jQUery syntax here... 
 			 var a = $('<button class="test testStyle">') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-			 a.addClass('animal'); // Added a class 
-			 a.attr('data-name', animals[i]); // Added a data-attribute
-			 a.text(animals[i]); // Provided the initial button text
-			 $('#buttonsView').append(a); // Added the button to the HTML
+			 a.addClass('animal'); 
+			 a.attr('data-name', animals[i]); /
+			 a.text(animals[i]); 
+			 $('#buttonsView').append(a); 
 
 		}
 	};
@@ -55,27 +54,27 @@ var hideAnimals=$('.hiddeAnimal');
 
 	
 
-		// This function handles events where one button is clicked
+		
 	$('#addAnimal').on('click', function(){
 		console.log("text")
 
 		// This line of code will grab the input from the textbox
 		var animal = $('#animal-input').val().trim();
 
-		// Theanimal  from the textbox is then added to our array
+	
 		animals.push(animal);
 			
-		// Our array then runs which handles the processing of our animal array
+	
 		renderButtons();
 
-		// We have this line so that users can hit "enter" instead of clicking on ht button and it won't move to the next page
+	
 		return false;
 	});
 
 
 		
 
-		// Generic function for displaying the animalInfo
+	
 	$(document).on('click', '.animal', displayAnimalInfo, stopGif());
 
 
